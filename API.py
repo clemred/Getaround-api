@@ -6,10 +6,10 @@ app = FastAPI()
 model = joblib.load('./model/model.pkl')
 preprocessor = joblib.load("./model/preprocessor.joblib")
 
-@app.post("/predict")
+@app.post("/predict", tags=['Serving a prediction from the model'])
 async def predict(data: list[dict]):
     """
-    Prediction of the renting price
+    Prediction of the renting price from a JSON. Returns a JSON of the prediction.
     """
     
     # Reading data 
